@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, mergeMap, of, tap } from 'rxjs';
+import { catchError, map, mergeMap, of } from 'rxjs';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MoviesService } from '../services/movies.service';
 import * as appActions from './app.actions';
