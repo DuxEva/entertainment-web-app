@@ -16,8 +16,6 @@ export class TrendingsComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.trendingMovies$ = this.store.pipe(
-      select(appSelectors.selectTrendingMovies)
-    );
+    this.trendingMovies$ = this.store.select(appSelectors.selectTrendingMovies);
   }
 }
