@@ -1,12 +1,12 @@
 <div class="max-w-screen-2xl mt-10">
   <h1 class="font-medium text-white text-start text-2xl">Trending</h1>
-  <!-- *ngIf="!(loading$ | async) && !(error$ | async)" -->
   <div
     class="mt-6 w-full flex flex-row overflow-x-auto scroll-smooth space-x-10"
+    *ngIf="!(loading$ | async) && !(error$ | async)"
   >
     <div
       *ngFor="let movie of trendingMovies$ | async"
-      class="relative w-2/5 min-w-[calc(100%/3)] md:min-w-[calc(100%/2)] lg:min-w-[calc(100%/3)] flex-shrink-0 group"
+      class="relative w-2/5 max-sm:w-[40%] min-w-[calc(100%/3)] md:min-w-[calc(100%/2)] lg:min-w-[calc(100%/3)] flex-shrink-0 group"
     >
       <img
         [src]="movie.thumbnail.regular.large"
@@ -25,8 +25,8 @@
         </div>
       </div>
 
-      <div class="flex flex-col absolute bottom-6 mx-10">
-        <div class="flex items-center space-x-4">
+      <div class="flex flex-col absolute bottom-6 mx-10 max-sm:mx-2">
+        <div class="flex items-center max-sm:items-start space-x-4">
           <p class="text-sm text-grayLight font-bold">{{ movie.year }}</p>
           <div class="flex items-center space-x-2">
             <img

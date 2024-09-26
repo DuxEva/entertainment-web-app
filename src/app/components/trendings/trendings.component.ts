@@ -12,10 +12,14 @@ import * as appSelectors from '../../store/app.selectors';
 })
 export class TrendingsComponent implements OnInit {
   trendingMovies$!: Observable<MediaElement[]>;
+  loading$!: Observable<boolean>;
+  error$!: Observable<string | null>;
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.trendingMovies$ = this.store.select(appSelectors.selectTrendingMovies);
+    this.loading$ = this.store.select(appSelectors.selectLoading);
+    this.error$ = this.store.select(appSelectors.selectError);
   }
 }
