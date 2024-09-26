@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, retry } from 'rxjs';
-import { MediaItem } from '../models';
+import { MediaElement } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,9 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<MediaItem[]> {
-    return this.http.get<MediaItem[]>(this.URL).pipe(
-      map((data: MediaItem[]) => {
+  getMovies(): Observable<MediaElement[]> {
+    return this.http.get<MediaElement[]>(this.URL).pipe(
+      map((data: MediaElement[]) => {
         return data;
       }),
       retry(3),

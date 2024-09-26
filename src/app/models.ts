@@ -10,7 +10,7 @@ export interface Thumbnail {
   };
 }
 
-export interface MediaItem {
+export interface MediaElement {
   title: string;
   thumbnail: Thumbnail;
   year: number;
@@ -18,4 +18,13 @@ export interface MediaItem {
   rating: string;
   isBookmarked: boolean;
   isTrending: boolean;
+}
+
+export interface AppState {
+  media: MediaElement[];
+  trending: MediaElement[];
+  tvShows: MediaElement[];
+  bookmarked: MediaElement[];
+  loading: boolean;
+  error: string;
 }

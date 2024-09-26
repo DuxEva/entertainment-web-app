@@ -1,0 +1,72 @@
+<div class="w-full flex flex-col gap-2 md:gap-4 p-1 group">
+  <div
+    class="w-full h-[160px] md:h-[280px] relative overflow-hidden rounded-xl"
+  >
+    <picture>
+      <source
+        media="(min-width: 1024px)"
+        srcset="{{media.thumbnail.regular.large}}"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="{{media.thumbnail.regular.medium}}"
+      />
+      <img
+        src="{{ media.thumbnail.regular.small }}"
+        alt="Image 1"
+        class="absolute w-full h-full left-0 top-0 object-cover z-10 duration-300 group-hover:scale-102"
+      />
+    </picture>
+
+    <div
+      class="absolute left-0 top-0 w-full h-full bg-black/0 hover:bg-black/60 flex flex-col justify-between items-end z-20 p-2 md:p-4"
+    >
+      <div
+        class="w-12 h-14 bg-dark hover:bg-white/35 duration-200 flex justify-center items-center rounded-full cursor-pointer"
+      >
+        <img
+          [src]="
+            !media.isBookmarked
+              ? '/assets/icon-bookmark-empty.svg'
+              : '/assets/icon-bookmark-full.svg'
+          "
+          alt="Image 2"
+          class="w-6 h-6"
+        />
+      </div>
+      <div class="flex justify-center items-center w-full h-full">
+        <button
+          class="flex text-lg items-center gap-2 bg-white/35 p-1 pr-6 rounded-full cursor-pointer duration-200 active:scale-75 opacity-0 group-hover:opacity-100"
+        >
+          <div
+            class="w-10 h-10 bg-dark flex justify-center items-center rounded-full"
+          >
+            <img src="/assets/icon-play.svg" alt="Image 2" class="w-8 h-8" />
+          </div>
+          Play
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col flex-start justify-start items-start w-full">
+    <div class="flex justify-start gap-1 text-sm text-light text-white/60">
+      <p>{{ media.year }}</p>
+      <p>.</p>
+      <p>
+        <img
+          [src]="
+            media.category === 'Movie'
+              ? 'assets/icon-nav-movies.svg'
+              : 'assets/icon-nav-tv-series.svg'
+          "
+          alt="movie"
+          class="w-4 h-4 filter-gray"
+        />
+      </p>
+      <p>{{ media.category }}</p>
+      <p>.</p>
+      <p>{{ media.rating }}</p>
+    </div>
+    <h1 class="text-xl mt-2">{{ media.title }}</h1>
+  </div>
+</div>

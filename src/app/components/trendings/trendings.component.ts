@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MediaItem } from '../../models';
-import { MoviesService } from '../../services/movies.service';
+import { AppState, MediaElement } from '../../models';
+import { select, Store } from '@ngrx/store';
+import * as appActions from '../../store/app.actions';
+import * as appSelectors from '../../store/app.selectors';
 
 @Component({
   selector: 'app-trendings',
@@ -9,13 +11,15 @@ import { MoviesService } from '../../services/movies.service';
   styleUrl: './trendings.component.css',
 })
 export class TrendingsComponent implements OnInit {
-  trendingMovies$!: Observable<MediaItem[]>;
-  // loading$!: Observable<boolean>;
-  // error$!: Observable<string>;
+  trendingMovies$!: Observable<MediaElement[]>;
 
-  constructor(private store: MoviesService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.trendingMovies$ = this.store.getMovies();
+    this.trendingMovies$ = this.store.pipe(
+      select(appSelectors.selectTrendingMovies)
+    );
+
+    this.trendingMovies$.subscribe((movies) => console.log('Movies:', movies));
   }
 }

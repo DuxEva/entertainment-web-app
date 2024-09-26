@@ -1,0 +1,8 @@
+.mt-6::-webkit-scrollbar {
+  display: none;
+}
+
+.mt-6 {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

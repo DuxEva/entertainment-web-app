@@ -8,11 +8,7 @@ import { MoviesService } from '../../services/movies.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  constructor(private router: Router, private moviesServices: MoviesService) {
-    this.moviesServices.getMovies().subscribe((data) => {
-      console.log('Movies:', data);
-    });
-  }
+  constructor(private router: Router) {}
   authAction: boolean = false;
 
   navItems = [
