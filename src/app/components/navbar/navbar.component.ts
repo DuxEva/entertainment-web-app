@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MoviesService } from '../../services/movies.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,11 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private moviesServices: MoviesService) {
+    this.moviesServices.getMovies().subscribe((data) => {
+      console.log('Movies:', data);
+    });
+  }
   authAction: boolean = false;
 
   navItems = [
@@ -26,7 +31,6 @@ export class NavbarComponent {
   ];
 
   isActive(route: string): boolean {
-    console.log('Route:', this.router.url);
     return this.router.url === route;
   }
 
