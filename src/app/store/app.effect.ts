@@ -15,7 +15,6 @@ export class AppEffects {
       ofType(appActions.loadData),
       mergeMap(() =>
         this.moviesService.getMovies().pipe(
-          tap((movies) => console.log('Movies:', movies)),
           map((movies) => appActions.loadDataSuccess({ data: movies })),
           catchError((error) => of(appActions.loadDataFailure({ error })))
         )

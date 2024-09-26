@@ -3,12 +3,14 @@
   <div
     class="w-full overflow-x-hidden flex flex-col gap-3 items-start justify-start"
   ></div>
-  <h1 class="text-2xl">Recommended for you</h1>
+  <h1 class="text-2xl" *ngIf="mediaElements$ | async as mediaElements">
+    Recommended for you
+  </h1>
   <div
     class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-2 rounded-3xl"
   >
     <app-media-card
-      *ngFor="let media of mediaElements$ | async"
+      *ngFor="let media of mediaElements$ | async as mediaElements"
       [media]="media"
     />
   </div>

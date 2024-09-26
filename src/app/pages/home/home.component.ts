@@ -15,8 +15,5 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.mediaElements$ = this.store.pipe(select(appSelectors.selectMedia));
-    this.store.pipe(select(appSelectors.selectMedia)).subscribe((movies) => {
-      console.log('Movies:', movies);
-    });
   }
 }

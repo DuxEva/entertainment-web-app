@@ -19,7 +19,5 @@ export class TrendingsComponent implements OnInit {
     this.trendingMovies$ = this.store.pipe(
       select(appSelectors.selectTrendingMovies)
     );
-
-    this.trendingMovies$.subscribe((movies) => console.log('Movies:', movies));
   }
 }

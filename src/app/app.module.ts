@@ -18,6 +18,8 @@ import { AppEffects } from './store/app.effect';
 import { MediaCardComponent } from './components/media-card/media-card.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { BookMarkComponent } from './pages/book-mark/book-mark.component';
+import { TvSeriesComponent } from './pages/tv-series/tv-series.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { BookMarkComponent } from './pages/book-mark/book-mark.component';
     MediaCardComponent,
     MovieComponent,
     BookMarkComponent,
+    TvSeriesComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

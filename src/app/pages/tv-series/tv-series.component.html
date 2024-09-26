@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full gap-8">
-  <app-search [placeholder]="'search movie'" />
+  <app-search [placeholder]="'search a tv show'" />
   <div
     class="w-full overflow-hidden flex flex-col gap-3 items-start justify-start mt-20"
   >
@@ -7,7 +7,9 @@
     <div
       class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-4 rounded-3xl"
     >
-      <app-media-card *ngFor="let media of medias$ | async" [media]="media" />
+      <ng-container *ngFor="let media of medias$ | async">
+        <app-media-card [media]="media" />
+      </ng-container>
     </div>
   </div>
 </div>
