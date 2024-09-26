@@ -7,9 +7,7 @@
     <div
       class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-4 rounded-3xl"
     >
-      <ng-container *ngFor="let media of medias$ | async">
-        <app-media-card [media]="media" />
-      </ng-container>
+      <app-media-card *ngFor="let media of medias$ | async" [media]="media" />
     </div>
   </div>
 </div>

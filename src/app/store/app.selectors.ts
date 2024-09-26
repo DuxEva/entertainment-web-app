@@ -7,10 +7,10 @@ export const selectMedia = createSelector(
   selectAppState,
   (state) => state.media
 );
-export const selectTrendingMovies = createSelector(selectAppState, (state) => {
-  console.log('state', state);
-  return state.trending;
-});
+export const selectTrendingMovies = createSelector(
+  selectAppState,
+  (state) => state.trending
+);
 export const selectTvShows = createSelector(
   selectAppState,
   (state) => state.tvShows
