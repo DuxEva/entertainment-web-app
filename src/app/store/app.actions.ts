@@ -13,4 +13,9 @@ export const loadDataFailure = createAction(
   props<{ error: string }>()
 );
 
+export const bookmark = createAction(
+  '[Media] Bookmark',
+  props<{ media: MediaElement }>()
+);
+
 export const getMovies = createAction('[Movies] Get Movies');

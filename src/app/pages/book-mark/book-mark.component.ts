@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, debounceTime, Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import * as appSelectors from '../../store/app.selectors';
 import { AppState, MediaElement } from '../../models';
@@ -14,6 +14,8 @@ export class BookMarkComponent implements OnInit {
   medias$!: Observable<MediaElement[]>;
   loading$!: Observable<boolean>;
   error$!: Observable<string | null>;
+  searchQuery: string = '';
+  searchedMedia: MediaElement[] = [];
 
   constructor(private store: Store<AppState>) {}
 
@@ -24,7 +26,12 @@ export class BookMarkComponent implements OnInit {
     this.error$ = this.store.select(appSelectors.selectError);
   }
 
-  handleSearch(searchQuery: string) {
-    console.log(searchQuery);
+  handleSearch(query: string) {
+    this.searchQuery = query;
+    this.medias$.pipe(debounceTime(500)).subscribe((media) => {
+      this.searchedMedia = media.filter((m) =>
+        m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    });
   }
 }

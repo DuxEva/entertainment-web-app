@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppState, MediaElement } from '../../models';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import * as appActions from '../../store/app.actions';
 import * as appSelectors from '../../store/app.selectors';
 
@@ -21,5 +21,9 @@ export class TrendingsComponent implements OnInit {
     this.trendingMovies$ = this.store.select(appSelectors.selectTrendingMovies);
     this.loading$ = this.store.select(appSelectors.selectLoading);
     this.error$ = this.store.select(appSelectors.selectError);
+  }
+  bookmark(media: MediaElement) {
+    console.log('media', media);
+    this.store.dispatch(appActions.bookmark({ media }));
   }
 }

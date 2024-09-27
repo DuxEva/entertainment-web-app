@@ -13,5 +13,6 @@
     type="text"
     class="w-full p-6 bg-transparent placeholder:text-2xl placeholder:text-gray pl-14 outline-none text-white text-xl focus:border-2 focus:border-red rounded-xl transition-all duration-200 ease-in-out"
     [placeholder]="placeholder"
+    (input)="handleInput($event)"
   />
 </div>

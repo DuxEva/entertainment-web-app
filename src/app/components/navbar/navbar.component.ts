@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 
@@ -7,17 +7,22 @@ import { MoviesService } from '../../services/movies.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
-  constructor(private router: Router) {}
+export class NavbarComponent implements OnInit {
   authAction: boolean = false;
   isAction: boolean = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.isActive('/');
+  }
 
   navItems = [
     {
       icon: 'assets/icon-nav-home.svg',
       iconActive: 'assets/icon-home-active.svg',
       alt: 'Home',
-      route: '/home',
+      route: '/',
     },
     {
       icon: 'assets/icon-nav-movies.svg',
