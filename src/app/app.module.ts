@@ -20,6 +20,7 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { BookMarkComponent } from './pages/book-mark/book-mark.component';
 import { TvSeriesComponent } from './pages/tv-series/tv-series.component';
 import { SearchComponent } from './components/search/search.component';
+import { CategoryWrapperComponent } from './components/category-wrapper/category-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SearchComponent } from './components/search/search.component';
     BookMarkComponent,
     TvSeriesComponent,
     SearchComponent,
+    CategoryWrapperComponent,
   ],
   imports: [
     BrowserModule,

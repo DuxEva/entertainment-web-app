@@ -1,0 +1,27 @@
+<div class="flex flex-col w-full gap-8 relative">
+  <app-search
+    [placeholder]="'search bookmarked media'"
+    (searchChange)="handleSearch($event)"
+  />
+  <div
+    class="w-full overflow-hidden flex flex-col gap-3 items-start justify-start mt-20"
+  >
+    <h1 class="text-2xl" *ngIf="!searchedMedia.length && !searchQuery.length">
+      Bookmarks
+    </h1>
+    <h1 class="text-2xl mb-5" *ngIf="searchQuery.length">
+      Found {{ searchedMedia.length > 0 ? searchedMedia.length : "no" }} results
+      for '{{ searchQuery }}'
+    </h1>
+    <div
+      class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-4 rounded-3xl"
+    >
+      <ng-container *ngIf="!searchedMedia.length && !searchQuery.length">
+        <app-media-card *ngFor="let media of medias$ | async" [media]="media" />
+      </ng-container>
+      <ng-container *ngIf="searchedMedia.length">
+        <app-media-card *ngFor="let media of searchedMedia" [media]="media" />
+      </ng-container>
+    </div>
+  </div>
+</div>

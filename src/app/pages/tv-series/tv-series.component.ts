@@ -28,7 +28,7 @@ export class TvSeriesComponent implements OnInit {
   }
 
   handleSearch(query: string) {
-    this.searchQuery = query;
+    this.searchQuery = query
     this.medias$.pipe(debounceTime(500)).subscribe((media) => {
       this.searchedMedia = media.filter((m) =>
         m.title.toLowerCase().includes(this.searchQuery.toLowerCase())

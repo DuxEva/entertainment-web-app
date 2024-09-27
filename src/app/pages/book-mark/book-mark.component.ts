@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, debounceTime, Observable } from 'rxjs';
-import { select, Store } from '@ngrx/store';
+import { debounceTime, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import * as appSelectors from '../../store/app.selectors';
 import { AppState, MediaElement } from '../../models';
 
