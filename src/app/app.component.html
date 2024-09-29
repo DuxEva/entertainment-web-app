@@ -1,9 +1,16 @@
 <main
-  class="w-full min-h-screen bg-black text-white flex flex-col md:flex-row relative overflow-x-hidden"
+  class="w-full h-screen bg-black text-white flex flex-col md:flex-row relative overflow-x-hidden"
 >
-  <app-navbar />
+  <app-navbar
+    [ngClass]="{
+      hidden: !isUserLoggedIn
+    }"
+  />
   <section
-    class="md:ml-36 xl:ml-[160px] flex-grow w-full p-3 pt-8 md:pl-3 md:p-6"
+    class="flex-grow w-full p-3 pt-8 md:pl-3 md:p-6"
+    [ngClass]="{
+      'md:ml-36 xl:ml-[160px]': isUserLoggedIn
+    }"
   >
     <router-outlet></router-outlet>
   </section>

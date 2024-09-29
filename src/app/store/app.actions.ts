@@ -19,3 +19,8 @@ export const bookmark = createAction(
 );
 
 export const getMovies = createAction('[Movies] Get Movies');
+
+export const isLoggedIn = createAction(
+  '[Auth] IsLoggedIn',
+  props<{ status: boolean }>()
+);

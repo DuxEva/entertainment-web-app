@@ -4,6 +4,9 @@ import {
   BrowserModule,
   provideClientHydration,
 } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,10 @@ import { BookMarkComponent } from './pages/book-mark/book-mark.component';
 import { TvSeriesComponent } from './pages/tv-series/tv-series.component';
 import { SearchComponent } from './components/search/search.component';
 import { CategoryWrapperComponent } from './components/category-wrapper/category-wrapper.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { SignupComponent } from './pages/auth/signup/signup.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/guard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -34,11 +41,16 @@ import { CategoryWrapperComponent } from './components/category-wrapper/category
     TvSeriesComponent,
     SearchComponent,
     CategoryWrapperComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     StoreModule.forRoot({
       data: appReducer,
     }),
@@ -53,7 +65,7 @@ import { CategoryWrapperComponent } from './components/category-wrapper/category
       connectInZone: true, // If set to true, the connection is established within the Angular zone
     }),
   ],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

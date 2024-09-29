@@ -9,6 +9,7 @@ export const initialState: AppState = {
   bookmarked: [],
   loading: false,
   error: '',
+  isLoggedIn: false,
 };
 
 export const appReducer = createReducer(
@@ -50,5 +51,9 @@ export const appReducer = createReducer(
       tvShows,
       trending,
     };
-  })
+  }),
+  on(appActions.isLoggedIn, (state, { status }) => ({
+    ...state,
+    isLoggedIn: status,
+  }))
 );

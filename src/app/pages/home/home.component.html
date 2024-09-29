@@ -1,17 +1,32 @@
 <div class="w-full flex flex-col space-y-7 overflow-x-hidden">
-  <app-trendings />
+  <!-- <app-search
+    [placeholder]="'search for media'"
+    (searchChange)="handleSearch($event)"
+  /> -->
+  <div class="pt-">
+    <app-trendings *ngIf="!searchedMedia.length" />
+  </div>
   <div
     class="w-full overflow-x-hidden flex flex-col gap-3 items-start justify-start"
-  ></div>
-  <h1 class="text-2xl" *ngIf="mediaElements$ | async as mediaElements">
-    Recommended for you
-  </h1>
-  <div
-    class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-2 rounded-3xl"
   >
-    <app-media-card
-      *ngFor="let media of mediaElements$ | async as mediaElements"
-      [media]="media"
-    />
+    <h1 class="text-2xl" *ngIf="mediaElements$ | async as mediaElements">
+      Recommended for you
+    </h1>
+    <div
+      class="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 pr-2 rounded-3xl"
+    >
+      <ng-container *ngIf="!searchedMedia.length">
+        <app-media-card
+          *ngFor="let media of mediaElements$ | async as mediaElements"
+          [media]="media"
+        />
+      </ng-container>
+    </div>
   </div>
 </div>
+
+
+
+<!-- https://jadoiradukunda.onrender.com/api/auth/login -->
+ 
+<!-- https://jadoiradukunda.onrender.com/api/auth/signup -->
