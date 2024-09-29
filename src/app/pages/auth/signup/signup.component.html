@@ -143,8 +143,12 @@
       class="w-full p-3 bg-red items-center mt-8 rounded-lg"
       type="submit"
       [disabled]="signUpForm.invalid"
+      [ngClass]="{
+        'cursor-not-allowed': isLoading,
+        'cursor-pointer': !isLoading
+      }"
     >
-      Create an account
+      {{ isLoading ? "Loading..." : "Create an account" }}
     </button>
 
     <p class="w-full flex justify-center gap-2 py-6">

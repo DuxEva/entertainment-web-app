@@ -22,6 +22,7 @@ export class SignupComponent {
   isPasswordFocused: boolean = false;
   isPassword2Focused: boolean = false;
   signupData!: Signup | SignupMsg;
+  isLoading!: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -50,6 +51,8 @@ export class SignupComponent {
   }
 
   onSubmit() {
+    console.log('Form submitted', this.signUpForm.value);
+    this.isLoading = true;
     if (this.signUpForm.valid) {
       const formData = {
         ...this.signUpForm.value,
@@ -60,6 +63,7 @@ export class SignupComponent {
       this.authService.signUp(formData).subscribe({
         next: (data) => {
           this.signupData = data;
+          this.isLoading = false;
           this.toastr.success(data.message, 'Success');
           this.router.navigate(['/login']);
         },
@@ -72,6 +76,7 @@ export class SignupComponent {
               'Error'
             );
           }
+          this.isLoading = false;
         },
       });
     }
