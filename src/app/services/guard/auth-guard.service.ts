@@ -28,7 +28,6 @@ export class AuthGuard implements CanActivate {
       this.store.dispatch(appActions.isLoggedIn({ status: true }));
       return true;
     } else {
-      console.log('helloo here');
       this.route.navigate(['login']);
       return false;
     }

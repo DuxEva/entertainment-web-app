@@ -7,7 +7,7 @@
     class="w-full overflow-hidden flex flex-col gap-3 items-start justify-start mt-20"
   >
     <h1 class="text-2xl" *ngIf="!searchedMedia.length && !searchQuery.length">
-      Bookmarks
+    {{title}}
     </h1>
     <h1 class="text-2xl mb-5" *ngIf="searchQuery.length">
       Found {{ searchedMedia.length > 0 ? searchedMedia.length : "no" }} results

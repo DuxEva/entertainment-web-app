@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
     this.route.url.subscribe((url) => {
       this.currentRoute = url[0].path;
-      console.log('Current Route:', this.currentRoute);
     });
   }
 }

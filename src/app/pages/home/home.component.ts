@@ -32,6 +32,5 @@ export class HomeComponent implements OnInit {
         m.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     });
-    console.log(this.searchedMedia);
   }
 }

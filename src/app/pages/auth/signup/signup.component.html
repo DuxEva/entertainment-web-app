@@ -142,7 +142,7 @@
     <button
       class="w-full p-3 bg-red items-center mt-8 rounded-lg"
       type="submit"
-      [disabled]="signUpForm.invalid"
+      [disabled]="signUpForm.invalid || isLoading"
       [ngClass]="{
         'cursor-not-allowed': isLoading,
         'cursor-pointer': !isLoading
